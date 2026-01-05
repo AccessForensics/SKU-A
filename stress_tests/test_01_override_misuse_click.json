@@ -1,0 +1,10 @@
+{
+  "flow_id": "override_misuse_click",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "protocol_version": "SKU-A v3.x Final",
+  "visual_only": false,
+  "steps": [
+    { "type": "click_selector", "selector": "a", "allow_multiple_matches": true }
+  ]
+}

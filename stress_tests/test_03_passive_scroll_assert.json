@@ -1,0 +1,12 @@
+{
+  "flow_id": "passive_scroll_assert",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "visual_only": true,
+  "steps": [
+    { "type": "wait_selector", "selector": "body", "timeout_ms": 5000 },
+    { "type": "assert_text_present", "text": "Example Domain", "timeout_ms": 3000 },
+    { "type": "scroll", "deltaY": 600, "delay_ms": 250 }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "sku-a-executor",
+  "version": "2.4.3",
+  "private": true,
+  "description": "SKU-A Executor v3.0 - Forensic Validation for ADA Title III Defense",
+  "main": "ect.js",
+  "scripts": {
+    "start": "node ect.js",
+    "test": "node ect.js flows/flow_01.json",
+    "postinstall": "node node_modules/playwright/install.js chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.45.0"
+  },
+  "engines": {
+    "node": ">=18.0.0 <21.0.0"
+  },
+  "license": "UNLICENSED",
+  "keywords": [],
+  "author": "",
+  "type": "commonjs"
+}

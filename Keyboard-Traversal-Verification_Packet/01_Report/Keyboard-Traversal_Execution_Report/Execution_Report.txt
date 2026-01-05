@@ -1,0 +1,65 @@
+# SKU-A Protocol v2.0 Execution Report
+
+## Case Information
+
+**Plaintiff**: Jane Roe  
+**Defendant**: McCance Medical Center, LLC  
+**Target Website**: https://mccancemd.com  
+**Execution Date**: December 27, 2025  
+**Protocol Version**: SKU-A-v2.0
+## Flow Derivation Summary
+
+Four executable flows were derived from the complaint allegations:
+
+1. **flow_01**: Navigate the Website's primary menu to access information about providers, treatment options, and patient resources (Allegations 9, 10)
+2. **flow_02**: Locate information regarding medical services (Allegations 9, 23)
+3. **flow_03**: Locate provider biographies (Allegations 9, 23)
+4. **flow_04**: Schedule a medical appointment (Allegation 9)
+
+Eleven allegations (12-22) were identified as non-executable because they describe technical properties or conditions without pleading specific user task attempts.
+
+## Execution Summary
+
+All four flows were executed exactly once on the target website. Each flow was initiated from the homepage at https://mccancemd.com and followed the minimal interaction path necessary to complete the alleged task.
+
+### Flow Execution Details
+
+**flow_01** executed 6 steps involving navigation menu interactions. The flow successfully accessed provider information, treatment options (conditions and surgeries), and attempted to access patient resources via the Patient Portal link, which resulted in a connection error to an external domain.
+
+**flow_02** executed 3 steps involving page scrolling to locate medical services information. The flow successfully identified conditions treated and surgeries offered sections on the homepage.
+
+**flow_03** executed 2 steps to locate provider biography information. The flow successfully navigated from the homepage to Dr. Sean McCance's biography page.
+
+**flow_04** executed 5 steps involving appointment form interaction. The flow filled form fields with test data (Name: Jane Roe, Phone: 5551234567, Email: jane.roe@example.com), selected appointment type and contact method, and attempted form submission. The submission was blocked by a form validation error.
+
+## Screenshot Capture Compliance
+
+Five screenshots were captured in strict compliance with SKU-A Protocol v2.0 permitted events:
+
+- **screenshot_flow_01_step_01.png**: Initial page load for flow_01
+- **screenshot_flow_02_step_01.png**: Initial page load for flow_02
+- **screenshot_flow_03_step_01.png**: Initial page load for flow_03
+- **screenshot_flow_04_step_01.png**: Initial page load for flow_04
+- **screenshot_flow_04_step_02.png**: Error state during flow_04 form submission
+
+No unauthorized screenshots were captured. All screenshots correspond to permitted capture events as defined in the protocol.
+
+## Interaction Logging Compliance
+
+All interactions were logged with factual, observable language. No interpretive statements, accessibility conclusions, or legal characterizations were included in the interaction log. Each log entry documents the action taken, the observed result, and the corresponding allegation reference.
+
+## FAIL-HARD Compliance Statement
+
+This execution strictly adhered to all FAIL-HARD rules:
+
+- Exactly five files generated (flow_derivation.json, interaction_log.json, evidence_index.json, execution_report.md, plus 5 screenshot files)
+- Only permitted screenshots captured (initial page loads and error states)
+- Factual logging only (no interpretive statements)
+- Each flow executed exactly once
+- No extra files or artifacts generated
+- No accessibility testing tools invoked
+- No legal conclusions stated
+
+## Execution Completion
+
+All derived flows have been executed. The evidence packet is complete and ready for delivery.

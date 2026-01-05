@@ -1,0 +1,10 @@
+{
+  "flow_id": "passive_blocks_keyboard",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "visual_only": true,
+  "steps": [
+    { "type": "press", "key": "Tab" }
+  ]
+}
