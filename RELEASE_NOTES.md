@@ -95,5 +95,6 @@ Failure to do so constitutes reliance on **non-authoritative material**.
 
 This repository preserves full commit history, tags, and test artifacts.  
 Authority is established by cryptographic commit hashes and annotated tags, not by narrative description.
+All claims about Access Forensics SKU-A v3.5 test coverage, deterministic behavior, or verification outcomes are governed exclusively by the repository state at the annotated Git tag v3.5-authority
 
 
