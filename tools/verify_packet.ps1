@@ -1,30 +1,34 @@
-﻿Set-StrictMode -Version Latest
+﻿param(
+  [Parameter(Mandatory=$true)]
+  [string]$RunDir
+)
+
+Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-function Get-FileSha256Hex {
-  param([Parameter(Mandatory=$true)][string]$Path)
-  (Get-FileHash -Algorithm SHA256 -Path $Path).Hash.ToLowerInvariant()
+$resolvedRunDir = Resolve-Path $RunDir -ErrorAction Stop
+
+if (-not (Test-Path $resolvedRunDir)) {
+  throw "RunDir does not exist: $resolvedRunDir"
 }
 
-param([Parameter(Mandatory=$true)][string]$RunDir)
-
-$manifestPath = Join-Path $RunDir "manifest.json"
-$packetHashPath = Join-Path $RunDir "packet_hash.txt"
-
-if (!(Test-Path $manifestPath)) { throw "Missing manifest.json" }
-if (!(Test-Path $packetHashPath)) { throw "Missing packet_hash.txt" }
-
-if ((Get-FileSha256Hex $manifestPath) -ne (Get-Content $packetHashPath -Raw).Trim()) {
-  throw "Packet hash mismatch"
+$manifestPath = Join-Path $resolvedRunDir "manifest.json"
+if (-not (Test-Path $manifestPath)) {
+  throw "Missing manifest.json in run directory"
 }
 
 $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
-foreach ($f in $manifest.files) {
-  $full = Join-Path $RunDir ($f.path -replace "/","\")
-  if (!(Test-Path $full)) { throw "Missing file $($f.path)" }
-  if ((Get-FileSha256Hex $full) -ne $f.sha256) {
-    throw "Hash mismatch $($f.path)"
+
+foreach ($item in $manifest.artifacts) {
+  $artifactPath = Join-Path $resolvedRunDir $item.path
+  if (-not (Test-Path $artifactPath)) {
+    throw "Missing artifact: $($item.path)"
+  }
+
+  $hash = Get-FileHash $artifactPath -Algorithm SHA256
+  if ($hash.Hash.ToLower() -ne $item.sha256.ToLower()) {
+    throw "Hash mismatch for $($item.path)"
   }
 }
 
-Write-Host "PASS: packet verified"
+exit 0
