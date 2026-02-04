@@ -15,7 +15,7 @@ class SKUAEngine {
     async initialize() {
         this.browser = await chromium.launch({ headless: true });
         this.context = await this.browser.newContext({ 
-            userAgent: "AccessForensics/SKU-A-Forensic-Observer/4.3.1", 
+            userAgent: "AccessForensics/SKU-A-Forensic-Observer/4.3.2", 
             viewport: this.manifest.viewport, 
             ignoreHTTPSErrors: true 
         });
