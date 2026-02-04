@@ -15,7 +15,7 @@ class SKUAEngine {
     async initialize() {
         this.browser = await chromium.launch({ headless: true });
         this.context = await this.browser.newContext({ 
-            userAgent: "AccessForensics/SKU-A-Forensic-Observer/4.3.3", 
+            userAgent: "AccessForensics/SKU-A-Forensic-Observer/4.4.1", 
             viewport: this.manifest.viewport, 
             ignoreHTTPSErrors: true 
         });
@@ -26,20 +26,14 @@ class SKUAEngine {
             observer.observe(document, { attributes: true, childList: true, subtree: true });
         });
     }
-
     async captureMirror() {
-        // PANEL FIX: Ensure DOM is settled before mirroring
         await this.waitForSettled();
         let content = await this.page.content();
-        
-        // PANEL FIX: Inject <base> tag to resolve styles/assets when opened locally
         const baseUrl = this.manifest.url;
         content = content.replace('<head>', `<head><base href="${baseUrl}">`);
-        
         fs.writeFileSync(path.join(this.outputDir, 'verification_mirror.html'), content);
         return content;
     }
-
     async captureStep(selector) {
         const node = await this.page.$(selector);
         if (!node) return null;
@@ -53,7 +47,6 @@ class SKUAEngine {
         fs.appendFileSync(path.join(this.outputDir, 'journal.ndjson'), JSON.stringify(entry) + '\n');
         return entry;
     }
-
     async waitForSettled(timeout = 10000) {
         const start = Date.now();
         let lastCount = await this.page.evaluate(() => window.__af_mutations);
@@ -67,13 +60,12 @@ class SKUAEngine {
             lastCount = currentCount;
         }
     }
-
     _redactRecursive(node) {
         if (!node || typeof node !== 'object') return;
         if (Array.isArray(node)) { node.forEach(i => this._redactRecursive(i)); }
         else {
             for (const k of Object.keys(node)) {
-                if (this.denylist.has(k)) node[k] = "[MINIMIZED]";
+                if (this.denylist.has(k)) node[k] = "[REDACTED]";
                 else this._redactRecursive(node[k]);
             }
         }
