@@ -15,7 +15,7 @@ class SKUAEngine {
     async initialize() {
         this.browser = await chromium.launch({ headless: true });
         this.context = await this.browser.newContext({ 
-            userAgent: "AccessForensics/SKU-A-Forensic-Observer/4.3.2", 
+            userAgent: "AccessForensics/SKU-A-Forensic-Observer/4.3.3", 
             viewport: this.manifest.viewport, 
             ignoreHTTPSErrors: true 
         });
@@ -26,11 +26,20 @@ class SKUAEngine {
             observer.observe(document, { attributes: true, childList: true, subtree: true });
         });
     }
+
     async captureMirror() {
-        const content = await this.page.content();
+        // PANEL FIX: Ensure DOM is settled before mirroring
+        await this.waitForSettled();
+        let content = await this.page.content();
+        
+        // PANEL FIX: Inject <base> tag to resolve styles/assets when opened locally
+        const baseUrl = this.manifest.url;
+        content = content.replace('<head>', `<head><base href="${baseUrl}">`);
+        
         fs.writeFileSync(path.join(this.outputDir, 'verification_mirror.html'), content);
         return content;
     }
+
     async captureStep(selector) {
         const node = await this.page.$(selector);
         if (!node) return null;
@@ -44,6 +53,21 @@ class SKUAEngine {
         fs.appendFileSync(path.join(this.outputDir, 'journal.ndjson'), JSON.stringify(entry) + '\n');
         return entry;
     }
+
+    async waitForSettled(timeout = 10000) {
+        const start = Date.now();
+        let lastCount = await this.page.evaluate(() => window.__af_mutations);
+        while (Date.now() - start < timeout) {
+            await new Promise(r => setTimeout(r, 750));
+            const currentCount = await this.page.evaluate(() => window.__af_mutations);
+            const finiteAnimations = await this.page.evaluate(() => 
+                document.getAnimations().filter(a => a.playState === 'running' && a.effect && a.effect.getTiming().iterations !== Infinity).length
+            );
+            if (currentCount === lastCount && finiteAnimations === 0) return true;
+            lastCount = currentCount;
+        }
+    }
+
     _redactRecursive(node) {
         if (!node || typeof node !== 'object') return;
         if (Array.isArray(node)) { node.forEach(i => this._redactRecursive(i)); }
