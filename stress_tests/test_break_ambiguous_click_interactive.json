@@ -1,0 +1,10 @@
+﻿{
+  "flow_id": "break_ambiguous_click_interactive",
+  "case_label": "stress",
+  "start_url": "file:///C:/Users/mskir/Desktop/ect/stress_tests/html/test_break_ambiguous_click.html",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "capture_mode": "interactive",
+  "steps": [
+    { "type": "click_selector", "selector": ".dup", "timeout_ms": 5000, "allegation_id": "GEN", "note": "This should fail, selector matches 2 elements." }
+  ]
+}

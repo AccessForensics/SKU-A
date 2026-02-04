@@ -1,0 +1,12 @@
+{
+  "flow_id": "interactive_keyboard_action",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "capture_mode": "interactive",
+  "steps": [
+    { "type": "wait_selector", "selector": "body", "timeout_ms": 5000 },
+    { "type": "tab", "count": 3, "delay_ms": 150 },
+    { "type": "press", "key": "Enter", "delay_ms": 150 }
+  ]
+}

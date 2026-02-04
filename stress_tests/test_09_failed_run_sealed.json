@@ -1,0 +1,11 @@
+{
+  "flow_id": "test_09_failed_run_sealed",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "capture_mode": "passive",
+  "steps": [
+    { "type": "wait_selector", "selector": "body", "timeout_ms": 5000 },
+    { "type": "wait_selector", "selector": "#definitely_not_real_12345", "timeout_ms": 1500 }
+  ]
+}

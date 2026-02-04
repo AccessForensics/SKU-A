@@ -1,0 +1,159 @@
+.elementor-kit-3818{--e-global-color-primary:#1F91CE;--e-global-color-secondary:#B0B0B0;--e-global-color-text:#000000;--e-global-color-accent:#F9AE67;--e-global-typography-primary-font-family:"Libre Franklin";--e-global-typography-primary-font-size:16px;--e-global-typography-primary-font-weight:400;--e-global-typography-primary-font-style:normal;--e-global-typography-secondary-font-family:"Libre Franklin";--e-global-typography-secondary-font-size:16px;--e-global-typography-secondary-font-weight:400;--e-global-typography-secondary-text-transform:none;--e-global-typography-secondary-font-style:normal;--e-global-typography-text-font-family:"Libre Franklin";--e-global-typography-text-font-size:16px;--e-global-typography-text-font-weight:400;--e-global-typography-text-text-transform:none;--e-global-typography-text-font-style:normal;--e-global-typography-accent-font-family:"Libre Franklin";--e-global-typography-accent-font-size:16px;--e-global-typography-accent-font-weight:500;background-color:#F5F5F3;font-family:"Libre Franklin";font-size:16px;font-weight:400;}.elementor-kit-3818 button,.elementor-kit-3818 input[type="button"],.elementor-kit-3818 input[type="submit"],.elementor-kit-3818 .elementor-button{background-color:#B4B4A3;font-size:18px;font-weight:bold;text-decoration:none;color:#000000;}.elementor-kit-3818 e-page-transition{background-color:#FFBC7D;}.elementor-kit-3818 a{color:#4488BA;}.elementor-kit-3818 a:hover{color:#4488BABA;}.elementor-kit-3818 h1{font-size:17px;font-weight:700;}.elementor-kit-3818 h2{font-size:17px;font-weight:700;}.elementor-kit-3818 h3{font-size:17px;}.elementor-kit-3818 h4{font-size:17px;}.elementor-kit-3818 h5{font-size:17px;}.elementor-kit-3818 h6{font-size:17px;}.elementor-section.elementor-section-boxed > .elementor-container{max-width:1400px;}.e-con{--container-max-width:1400px;}.elementor-widget:not(:last-child){margin-block-end:20px;}.elementor-element{--widgets-spacing:20px 20px;--widgets-spacing-row:20px;--widgets-spacing-column:20px;}{}h1.entry-title{display:var(--page-title-display);}.site-header .site-branding{flex-direction:column;align-items:stretch;}.site-header{padding-inline-end:0px;padding-inline-start:0px;}.site-footer .site-branding{flex-direction:column;align-items:stretch;}@media(max-width:1024px){.elementor-section.elementor-section-boxed > .elementor-container{max-width:1024px;}.e-con{--container-max-width:1024px;}}@media(max-width:767px){.elementor-section.elementor-section-boxed > .elementor-container{max-width:767px;}.e-con{--container-max-width:767px;}}/* Start custom CSS *//* add margin after UL */
+
+.elementor-widget-theme-post-content ul, .elementor-widget-text-editor ul {
+   margin-bottom: 20px !important
+}
+
+.elementor-widget-theme-post-content ol, .elementor-widget-text-editor ol {
+   margin-bottom: 20px !important
+}
+
+/* hide form labels */
+
+label {
+   display: none;
+
+}
+
+/* Pricing table same height */
+
+.elementor-widget-price-table, .elementor-widget-price-table>div, .elementor-price-table {
+    height: 100%;
+}
+
+.elementor-price-table {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+ 
+  
+}
+
+.elementor-price-table__footer {
+    margin-top: auto;
+}
+
+/* Service table same height */
+
+
+.elementor-kit-3818 .elementor-widget-wrap{
+ flex-direction: column;
+}
+.elementor-kit-3818 .elementor-widget-wrap .elementor-widget-button{
+ margin-top: auto;
+}
+
+/* Blockquote colors */
+
+
+blockquote{
+  font-size: 100%;
+  width:90%;
+  margin:20px 50px 20px 50px;
+  font-style:italic;
+  color: #000000;
+  padding:20px 30px 5px 50px;
+  border-left:2px solid #BDD5E7 ;
+  line-height:1.6;
+  position: relative;
+
+}
+
+blockquote::before{
+  font-family:Arial;
+  content: "\201C";
+  color:#ccc;
+  font-size:4.5em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+blockquote::after{
+  content: '';
+}
+
+/* Menu text */
+
+.elementor-menu-toggle:before {
+content:'Menu';
+position: relative;
+margin-right: 10px;
+font-size:18px;
+}
+
+/* Image shadow */
+
+img.alignright {
+    box-shadow: 1px 1px 2px #aaaaaa !important;
+    border-radius: 5px !important;
+    padding: 2px !important;
+}
+
+/* Review section */
+
+.elementor-testimonial__footer cite, .elementor-testimonial__header cite {
+
+  margin: 0 auto;
+  width: 100%;
+
+}
+.elementor-195 .elementor-element.elementor-element-c239b47 .elementor-testimonial__text {
+
+  padding: 20px;
+}
+
+/* H1 and H2  */
+
+
+ .hunderlineblack:after {
+    content: "";
+    display: block;
+    width: 10%;
+    margin: 10px 0 0 0;
+ border-bottom: solid 1px #000000;
+}
+
+ .hunderlineblackcenter:after {
+  content: "";
+    display: block;
+    width: 10%;
+    margin: 10px auto 0;
+    border-bottom: solid 1px #000000;
+}
+
+.hunderlinewhite:after {
+    content: "";
+    display: block;
+    width: 10%;
+    margin: 10px auto 0;
+    border-bottom: solid 1px #ffffff;
+}
+
+/* Image shadow  */
+
+
+img.alignright {
+    box-shadow: 1px 1px 2px #aaaaaa !important;
+    border-radius: 5px !important;
+    padding: 2px !important;
+}
+
+.wp-caption img {
+    box-shadow: 1px 1px 2px #aaaaaa !important;
+    border-radius: 5px !important;
+    padding: 2px !important;
+}
+
+@media only screen and (max-width: 840px) {
+    figure.alignleft, img.alignleft, figure.alignright, img.alignright {
+        float: none !important;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}/* End custom CSS */

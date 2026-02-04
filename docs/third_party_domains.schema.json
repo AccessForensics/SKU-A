@@ -1,0 +1,40 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://accessforensics.example/schemas/third_party_domains.schema.json",
+  "title": "ThirdPartyDomainsObservation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["generated_at_utc", "domains"],
+  "properties": {
+    "generated_at_utc": {
+      "type": "string",
+      "description": "UTC timestamp with millisecond precision",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["domain", "first_seen_utc", "source_artifact"],
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "Observed domain name",
+            "pattern": "^[A-Za-z0-9.-]+$"
+          },
+          "first_seen_utc": {
+            "type": "string",
+            "description": "UTC timestamp with millisecond precision",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$"
+          },
+          "source_artifact": {
+            "type": "string",
+            "description": "Artifact filename that supports the observation"
+          }
+        }
+      }
+    }
+  }
+}

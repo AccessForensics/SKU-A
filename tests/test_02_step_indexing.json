@@ -1,0 +1,10 @@
+{
+  "case_label": "test_02_step_indexing",
+  "flow_id": "t02",
+  "capture_mode": "interactive",
+  "start_url": "file:./tests/t02_indexing.html",
+  "steps": [
+    { "type": "wait_selector", "selector": "#btn" },
+    { "type": "click_selector", "selector": "#btn" }
+  ]
+}

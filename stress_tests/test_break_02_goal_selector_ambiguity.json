@@ -1,0 +1,13 @@
+{
+  "flow_id": "break_goal_selector_ambiguity",
+  "case_label": "stress",
+  "start_url": "file:./stress_tests/html/break_goal_ambiguous.html",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "capture_mode": "passive",
+  "goal_selector": ".goal",
+  "goal_expectation": "present",
+  "goal_timeout_ms": 3000,
+  "steps": [
+    { "type": "wait_selector", "selector": "body", "timeout_ms": 3000 }
+  ]
+}

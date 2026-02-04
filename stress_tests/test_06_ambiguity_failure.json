@@ -1,0 +1,16 @@
+{
+  "flow_id": "test_06_ambiguity_failure",
+  "case_label": "stress",
+  "start_url": "http://127.0.0.1:8080/stress_tests/html/test_06_ambiguous.html",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "capture_mode": "interactive",
+  "steps": [
+    { "type": "wait_selector", "selector": "body", "timeout_ms": 5000 },
+    {
+      "type": "click_selector",
+      "selector": ".ambig",
+      "timeout_ms": 3000,
+      "note": "INTENTIONAL AMBIGUITY: selector matches 3 elements, must hard-fail (no arbitrary choice)."
+    }
+  ]
+}

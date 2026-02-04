@@ -1,0 +1,8 @@
+{
+  "flow_id": "break_invalid_json",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "capture_mode": "passive",
+  "steps": [
+    { "type": "wait_selector", "selector": "body", "timeout_ms": 5000 }
+  ]

@@ -1,0 +1,15 @@
+﻿{
+  "flow_id": "override_misuse_type",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "visual_only": false,
+  "steps": [
+    {
+      "type": "type_selector",
+      "selector": "input",
+      "text": "test",
+      "allow_multiple_matches": true
+    }
+  ]
+}

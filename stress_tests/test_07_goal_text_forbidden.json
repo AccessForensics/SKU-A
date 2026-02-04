@@ -1,0 +1,11 @@
+{
+  "flow_id": "test_07_goal_text_forbidden",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "capture_mode": "passive",
+  "goal_text": "Example Domain",
+  "steps": [
+    { "type": "wait_selector", "selector": "body", "timeout_ms": 5000 }
+  ]
+}

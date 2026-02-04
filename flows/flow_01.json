@@ -1,0 +1,8 @@
+{
+  "flow_id": "flow_01_keyboard_traversal",
+  "start_url": "https://mccancemd.com",
+  "steps": [
+    { "type": "scroll", "deltaY": 4000, "note": "Scroll to trigger lazy content" },
+    { "type": "tab", "count": 20, "note": "Tab through interactive elements" }
+  ]
+}

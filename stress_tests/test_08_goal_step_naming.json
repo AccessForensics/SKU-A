@@ -1,0 +1,12 @@
+{
+  "flow_id": "test_08_goal_step_naming",
+  "case_label": "stress",
+  "start_url": "http://127.0.0.1:8080/stress_tests/html/test_08_goal.html",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "capture_mode": "passive",
+  "goal_selector": "#goal",
+  "steps": [
+    { "type": "wait_selector", "selector": "body", "timeout_ms": 5000 },
+    { "type": "wait_selector", "selector": "#goal", "timeout_ms": 5000 }
+  ]
+}

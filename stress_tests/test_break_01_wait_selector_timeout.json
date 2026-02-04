@@ -1,0 +1,10 @@
+﻿{
+  "flow_id": "break_wait_selector_timeout_missing_selector",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "capture_mode": "passive",
+  "steps": [
+    { "type": "wait_selector", "selector": "#___definitely_not_present___", "timeout_ms": 1500, "allegation_id": "GEN" }
+  ]
+}

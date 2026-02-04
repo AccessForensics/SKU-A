@@ -1,0 +1,9 @@
+﻿{
+  "case_label": "test_02_strict_selector_violation",
+  "flow_id": "t02",
+  "start_url": "https://example.com",
+  "steps": [
+    { "type": "wait_selector", "selector": "body" },
+    { "type": "click_selector", "selector": "body", "allow_multiple_matches": true }
+  ]
+}

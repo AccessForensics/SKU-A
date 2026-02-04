@@ -1,0 +1,9 @@
+{
+  "flow_id": "break_passive_has_click",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "capture_mode": "passive",
+  "steps": [
+    { "type": "click_selector", "selector": "a" }
+  ]
+}

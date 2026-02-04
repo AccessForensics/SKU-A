@@ -1,0 +1,49 @@
+﻿$run = (Get-ChildItem (Join-Path $PSScriptRoot "..\runs") -Directory |
+        Sort-Object LastWriteTime -Descending |
+        Select-Object -First 1).FullName
+
+$ver = Join-Path $run "Deliverable_Packet\03_Verification"
+$rep = Join-Path $run "Deliverable_Packet\01_Report"
+
+$metaPath = Join-Path $ver "run_metadata.json"
+$manifestPath = Join-Path $ver "manifest.json"
+$corePath = Join-Path $ver "manifest_core.json"
+$hashPath = Join-Path $ver "packet_hash.txt"
+$ilogPath = Join-Path $rep "interaction_log.json"
+$statusPath = Join-Path $ver "STATUS.txt"
+
+function Fail($m){ Write-Host "`n❌ BREAK 1 FAILED: $m" -ForegroundColor Red; exit 1 }
+function Pass($m){ Write-Host "`n✅ BREAK 1 PASSED" -ForegroundColor Green; Write-Host $m -ForegroundColor Cyan; exit 0 }
+
+foreach ($p in @($metaPath,$manifestPath,$corePath,$hashPath,$ilogPath,$statusPath)) {
+  if (!(Test-Path $p)) { Fail "missing required file: $p" }
+}
+
+$meta = Get-Content $metaPath -Raw | ConvertFrom-Json
+if ($meta.status -ne "error") { Fail "run_metadata.status is not error (got: $($meta.status))" }
+
+$statusTxt = Get-Content $statusPath -Raw
+if ($statusTxt -notmatch "RUN STATUS:\s*ERROR") { Fail "STATUS.txt does not show RUN STATUS: ERROR" }
+
+# Must look like a wait_selector timeout / not found type error
+$err = [string]$meta.error
+if (($err -notmatch "wait_selector") -and ($err -notmatch "Timeout") -and ($err -notmatch "not found") -and ($err -notmatch "Selector")) {
+  Fail "error reason does not look like wait_selector timeout/not found (run_metadata.error: $err)"
+}
+
+# sealing check
+$manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
+$hasPacketHashEntry = $false
+foreach ($f in $manifest.files) { if ($f.path -eq "03_Verification/packet_hash.txt") { $hasPacketHashEntry = $true; break } }
+if (!$hasPacketHashEntry) { Fail "manifest.json does not include 03_Verification/packet_hash.txt" }
+
+$expected = (Get-FileHash -Algorithm SHA256 $corePath).Hash.ToLower()
+$actual = ((Get-Content $hashPath -Raw).Trim()).ToLower()
+if ($expected -ne $actual) { Fail "packet_hash.txt does not match SHA-256(manifest_core.json)" }
+
+$ilog = Get-Content $ilogPath -Raw | ConvertFrom-Json
+$hasWaitError = $false
+foreach ($e in $ilog) { if ($e.action -eq "wait_selector" -and $e.result -eq "error") { $hasWaitError = $true; break } }
+if (!$hasWaitError) { Fail "interaction_log missing wait_selector error entry" }
+
+Pass "wait_selector missing selector hard-failed, packet sealed correctly."

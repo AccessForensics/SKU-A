@@ -1,0 +1,15 @@
+{
+  "case_label": "test_01_policy_gate_misuse",
+  "flow_id": "t01",
+  "capture_mode": "interactive",
+  "start_url": "file:./tests/t01_policy_gate.html",
+  "steps": [
+    {
+      "type": "click_selector",
+      "selector": "#btn",
+      "timeout_ms": 2000,
+      "allow_multiple_matches": true,
+      "note": "This must hard fail. allow_multiple_matches is forbidden outside wait_selector."
+    }
+  ]
+}

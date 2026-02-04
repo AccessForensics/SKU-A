@@ -1,0 +1,91 @@
+{
+  "created_at_utc": "2025-12-29T02:24:55.994Z",
+  "files": [
+    {
+      "path": "console.json",
+      "sha256": "6db31c2593a9745b6e935d2aec4cc73bdae602aa0e9ec2f15129912604b83540",
+      "size_bytes": 631
+    },
+    {
+      "path": "evidence_index.json",
+      "sha256": "51a29c5d202b134d482d7c60fd464788523970b9736fcc4b359faf6c3f0c2e92",
+      "size_bytes": 1954
+    },
+    {
+      "path": "interaction_log.json",
+      "sha256": "b6e6ef05e2d798958063b70316d425b0f6b6bf8cfbfdb3f0edcc191647fd0b91",
+      "size_bytes": 1389
+    },
+    {
+      "path": "journal.ndjson",
+      "sha256": "8d0174f87b93c0cbfe6b4580c7a5947443f6f3dea3835d7f94298ba55ab2c54d",
+      "size_bytes": 2518
+    },
+    {
+      "path": "network.har",
+      "sha256": "4104fbae9def9f94007f4de1ba2c9bc7a7d4595170f1fa537e3e89c5fc31f379",
+      "size_bytes": 8852060
+    },
+    {
+      "path": "run_metadata.json",
+      "sha256": "a36ed2e8090b5184ce694feee6329f61a7877c62dae672c897f0d8f4d4ab70ea",
+      "size_bytes": 1102
+    },
+    {
+      "path": "screenshots/ax/ax_flow_01_keyboard_traversal_step_001.json",
+      "sha256": "530bf86c09a71f4de46e3eb580c5bcb8115c47c2003526618816f04bc7d83942",
+      "size_bytes": 531566
+    },
+    {
+      "path": "screenshots/ax/ax_flow_01_keyboard_traversal_step_002.json",
+      "sha256": "349c5f1af891d95e26ae3f826b11c29443469a062da04e35824cf189befb9d39",
+      "size_bytes": 539517
+    },
+    {
+      "path": "screenshots/ax/ax_flow_01_keyboard_traversal_step_003.json",
+      "sha256": "128dd86b8f493a164ffeede984132ca79647b7e59940bde3f82baaa2ba8abd78",
+      "size_bytes": 551923
+    },
+    {
+      "path": "screenshots/html/page_flow_01_keyboard_traversal_step_001.html",
+      "sha256": "6d9c45e0e34f2c86738f1f2e277e876198fae4c87e4976b5acbee6382e064c9d",
+      "size_bytes": 157322
+    },
+    {
+      "path": "screenshots/html/page_flow_01_keyboard_traversal_step_002.html",
+      "sha256": "0442e05f8663a850d83bfa62a07896ce68e3c7a8f81e99f0868e57d5f124d3a6",
+      "size_bytes": 200076
+    },
+    {
+      "path": "screenshots/html/page_flow_01_keyboard_traversal_step_003.html",
+      "sha256": "6bea6eb8be33cf186196f2d96da91590825707748c72271d854c117d89e0f408",
+      "size_bytes": 615595
+    },
+    {
+      "path": "screenshots/screenshot_flow_01_keyboard_traversal_step_001.png",
+      "sha256": "9824c742dcd2ba616a689a670302222959734811a0f55bdbd558c3cbcfc7ae4e",
+      "size_bytes": 220421
+    },
+    {
+      "path": "screenshots/screenshot_flow_01_keyboard_traversal_step_002.png",
+      "sha256": "53d5eed3adb5ffd38efa431a34f6faa093ff9fcd014f6747b8f6138cad34a388",
+      "size_bytes": 134673
+    },
+    {
+      "path": "screenshots/screenshot_flow_01_keyboard_traversal_step_003.png",
+      "sha256": "a774f15dda9dcb22f46911d8b6ad41317043a138ce941fb248f4266cac3bad5f",
+      "size_bytes": 260331
+    },
+    {
+      "path": "trace.zip",
+      "sha256": "c3d876ffa14b7faf4f7397f27a0ed70f3d2e71f8a85526f1172b955a14ba92d3",
+      "size_bytes": 11974777
+    },
+    {
+      "path": "video.webm",
+      "sha256": "7abb83d37234034569e698d18ef874edae10147de10baf5c6c58f8c4020e3e43",
+      "size_bytes": 1097800
+    }
+  ],
+  "run_id": "20251229T022448Z_flow_01_keyboard_traversal"
+}

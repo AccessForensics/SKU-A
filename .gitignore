@@ -1,0 +1,11 @@
+﻿node_modules/
+artifacts/
+temp/
+.env
+
+# Forensic Hygiene: Block accidental command leaks
+ersmskirDesktopect
+how --name-only --oneline HEAD
+tatus
+*.bak
+*.tmp

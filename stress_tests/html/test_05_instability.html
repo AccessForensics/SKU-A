@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test 05 Instability</title>
+  </head>
+  <body>
+    <div>instability page</div>
+
+    <!-- Always 1 match -->
+    <div class="unstable">unstable A</div>
+
+    <script>
+      // Toggle a SECOND match on/off, but never drop to zero matches.
+      let on = false;
+      setInterval(() => {
+        on = !on;
+        const existing = document.getElementById("unstableB");
+        if (on) {
+          if (!existing) {
+            const d = document.createElement("div");
+            d.className = "unstable";
+            d.id = "unstableB";
+            d.textContent = "unstable B";
+            document.body.appendChild(d);
+          }
+        } else {
+          if (existing) existing.remove();
+        }
+      }, 75);
+    </script>
+  </body>
+</html>

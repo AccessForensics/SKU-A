@@ -1,0 +1,10 @@
+{
+  "flow_id": "test_13_manifest_includes_execution_report",
+  "case_label": "stress",
+  "start_url": "https://example.com",
+  "protocol_version": "SKU-A v3.5 (Hardened, Locked)",
+  "capture_mode": "passive",
+  "steps": [
+    { "type": "wait_selector", "selector": "body", "timeout_ms": 5000 }
+  ]
+}

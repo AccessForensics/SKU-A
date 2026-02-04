@@ -1,0 +1,11 @@
+﻿{
+  "name": "sku-a-forensic-engine",
+  "version": "3.6.0",
+  "description": "Hardened mechanical observer for ADA Title III litigation capture.",
+  "main": "ect.js",
+  "dependencies": {
+    "playwright": "^1.41.0",
+    "fs-extra": "^11.2.0",
+    "crypto": "^1.0.1"
+  }
+}
