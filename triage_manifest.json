@@ -1,0 +1,18 @@
+{
+    "css_allowlist":  [
+                          "color",
+                          "display"
+                      ],
+    "hash":  "00000000000000000000000000000000",
+    "toolchain_id":  "bypass",
+    "viewport":  {
+                     "height":  720,
+                     "width":  1280
+                 },
+    "allowed_selectors":  [
+                              "#checkout-btn",
+                              ".nav-menu-item"
+                          ],
+    "matter_id":  "TRIAGE-20260204-1017",
+    "url":  "https://client-site.com"
+}
